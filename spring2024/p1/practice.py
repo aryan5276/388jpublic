@@ -8,8 +8,7 @@ def hello_world():
     >>> hello_world()
     'Hello, World!'
     """
-    raise NotImplementedError('Please implement this function for full credit')
-
+    return "Hello, World!"
 
 def sum_unique(l):
     """ Sums values in l, not counting duplicates.
@@ -27,7 +26,11 @@ def sum_unique(l):
     >>> sum_unique([2, 2, 2, 2, 1])
     3
     """
-    raise NotImplementedError('Please implement this function for full credit')
+    res = []
+    for i in l:
+        if i not in res:
+            res.append(i)
+    return sum(res)
 
 
 def palindrome(x):
@@ -47,7 +50,8 @@ def palindrome(x):
     >>> palindrome('python')
     False
     """
-    raise NotImplementedError('Please implement this function for full credit')
+    x = str(x)
+    return x == x[::-1]
         
         
 
@@ -68,7 +72,11 @@ def sum_multiples(num):
     >>> sum_multiples(16) # Multiples: [3, 5, 6, 9, 10, 12, 15]
     60
     """
-    raise NotImplementedError('Please implement this function for full credit')
+    res = []
+    for i in range(num):
+        if i % 3 == 0 or i % 5 == 0:
+            res.append(i)
+    return sum(res)
 
 
 def num_func_mapper(nums, funs):
@@ -86,7 +94,10 @@ def num_func_mapper(nums, funs):
     >>> num_func_mapper(num_list, f_list)
     [11, 15]
     """
-    raise NotImplementedError('Please implement this function for full credit') 
+    res = []
+    for fun in funs:
+        res.append(fun(nums))
+    return res
 
 def height_sort(names, heights):
     """
@@ -105,8 +116,13 @@ def height_sort(names, heights):
     Explanation: Mary is the tallest, followed by Emma and John.
     """
     
-    raise NotImplementedError('Please implement this function for full credit')
- 
+    li = zip(names, heights)
+    li = sorted(li, key=(lambda x: x[1]), reverse=True)
+    res = []
+    for key, val in li:
+        res.append(key)
+    return res
+
 def custom_sort(lst):
     """ Use Python's built-in sort function to sort the list so that the odd numbers (in the same order as in the original list) come first, and then the even numbers (also in the same order).
 
@@ -117,4 +133,4 @@ def custom_sort(lst):
     (Hint: use a lambda function) 
     """
     
-    raise NotImplementedError('Please implement this function for full credit')
+    return sorted(lst, key=(lambda x: 1 - x%2))

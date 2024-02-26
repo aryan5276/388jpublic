@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href="{{ url_for('index') }}"><h3>Home Page</h3></a>
+
+<h1>{{ info['name'] }}</h1>
+<body>
+
+<!-- image, name, height, weight, base experience, moves -->
+<ul>
+  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ info['id'] }}.png" height="300" width="300"></img>
+  <h4>HEIGHT: {{ info['height'] }}</h4>
+  <h4>WEIGHT: {{ info['weight'] }}</h4>
+  <h4>BASE EXPERIENCE: {{ info['base_exp'] }}</h4>
+  <h4>MOVES:</h4>
+  <b>{{ info['moves'] }}</b>
+  <!-- <ul>
+    {% for move in info['moves'] %}
+    <li>
+      <b>{{ move }}</b>
+    </li>
+    {% endfor %}
+  </ul> -->
+</ul>
+
+
+<!-- abilities -->
+<h4>ABILITIES:</h4>
+<ul>
+  {% for ability in info['abilities'] %}
+<li>
+    <a href="{{ url_for('pokemon_with_ability', ability_name=ability) }}"><b>{{ ability }}</b></a>
+</li>
+{% endfor %}
+</ul>
+</body>
+
+{% endblock %}

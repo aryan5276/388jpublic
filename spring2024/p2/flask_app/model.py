@@ -104,11 +104,14 @@ class PokeClient(object):
 ## -- Example usage -- ###
 if __name__=='__main__':
     client = PokeClient()
-    l = client.get_pokemon_list()
-    print(len(l))
-    print(l[1])
+    # l = client.get_pokemon_list()
+    # ids = client.get_pokemon_ids()
+    # print(ids[:10])
 
-    i = client.get_pokemon_info(l[1])
+    # print(len(l))
+    # print(l[1])
+
+    i = client.get_pokemon_info("bulbasaur")
     print(i.keys())
     print(i['name'])
     print(i['base_exp'])
@@ -116,7 +119,3 @@ if __name__=='__main__':
     print(i['height'])
     print(i['abilities'])
     print(len(i['moves']))
-
-
-    p = client.get_pokemon_with_ability('tinted-lens')
-    print(p)
